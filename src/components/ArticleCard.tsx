@@ -25,7 +25,7 @@ export function ArticleCard({ article }: { article: ArticleMeta }) {
               className="object-cover transition-transform duration-500 group-hover:scale-105"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-wizard-card/90 via-wizard-card/30 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-wizard-card/60 via-transparent to-transparent" />
           </div>
         )}
 
