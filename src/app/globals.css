@@ -1,0 +1,182 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0a12;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a4a;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8b5cf6;
+}
+
+/* ── Selection ── */
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #fff;
+}
+
+/* ── Highlight.js dark theme overrides ── */
+pre code.hljs {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.hljs {
+  background: transparent !important;
+}
+
+/* ── Article prose styling ── */
+.article-content {
+  @apply text-wizard-text leading-relaxed;
+}
+
+.article-content h1 {
+  @apply font-heading text-3xl md:text-4xl font-bold mt-12 mb-6 text-white;
+  @apply border-b border-wizard-border pb-4;
+}
+
+.article-content h2 {
+  @apply font-heading text-2xl md:text-3xl font-bold mt-10 mb-4 text-white;
+  @apply border-b border-wizard-border/50 pb-3;
+}
+
+.article-content h3 {
+  @apply font-heading text-xl md:text-2xl font-semibold mt-8 mb-3 text-wizard-purple-light;
+}
+
+.article-content h4 {
+  @apply font-heading text-lg font-semibold mt-6 mb-2 text-wizard-blue-light;
+}
+
+.article-content p {
+  @apply mb-4 text-wizard-text/90 text-base md:text-lg leading-relaxed;
+}
+
+.article-content a {
+  @apply text-wizard-purple-light hover:text-wizard-gold transition-colors underline underline-offset-2 decoration-wizard-purple/40 hover:decoration-wizard-gold/60;
+}
+
+.article-content strong {
+  @apply text-white font-semibold;
+}
+
+.article-content em {
+  @apply text-wizard-text-muted italic;
+}
+
+.article-content ul {
+  @apply mb-4 ml-6 space-y-1;
+}
+
+.article-content ul li {
+  @apply text-wizard-text/90 relative pl-2;
+  list-style: none;
+}
+
+.article-content ul li::before {
+  content: "✦";
+  @apply absolute -left-5 text-wizard-purple text-sm;
+}
+
+.article-content ol {
+  @apply mb-4 ml-6 space-y-1 list-decimal;
+}
+
+.article-content ol li {
+  @apply text-wizard-text/90 pl-1;
+}
+
+.article-content ol li::marker {
+  @apply text-wizard-purple-light font-semibold;
+}
+
+.article-content blockquote {
+  @apply border-l-4 border-wizard-purple/60 pl-4 py-2 my-6 bg-wizard-purple/5 rounded-r-lg;
+}
+
+.article-content blockquote p {
+  @apply text-wizard-text-muted italic mb-0;
+}
+
+.article-content hr {
+  @apply my-8 border-wizard-border/50;
+}
+
+/* ── Inline code ── */
+.article-content code:not(pre code) {
+  @apply bg-wizard-card text-wizard-purple-light px-1.5 py-0.5 rounded text-sm font-mono border border-wizard-border/50;
+}
+
+/* ── Code blocks ── */
+.article-content pre {
+  @apply mb-6 rounded-xl overflow-hidden border border-wizard-border/50;
+  @apply bg-[#0d0d1a] !important;
+}
+
+.article-content pre code {
+  @apply block p-4 text-sm font-mono overflow-x-auto leading-relaxed;
+}
+
+/* ── Tables ── */
+.article-content table {
+  @apply w-full mb-6 border-collapse overflow-hidden rounded-lg;
+}
+
+.article-content thead {
+  @apply bg-wizard-card;
+}
+
+.article-content th {
+  @apply px-4 py-3 text-left text-sm font-semibold text-wizard-purple-light border-b border-wizard-border;
+}
+
+.article-content td {
+  @apply px-4 py-3 text-sm border-b border-wizard-border/30;
+}
+
+.article-content tbody tr:hover {
+  @apply bg-wizard-purple/5;
+}
+
+/* ── Images ── */
+.article-content img {
+  @apply rounded-xl my-6 shadow-glow max-w-full;
+}
+
+/* ── Glow effects ── */
+@keyframes subtle-glow {
+  0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.1); }
+  50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); }
+}
+
+.hover-glow {
+  transition: all 0.3s ease;
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 30px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.05);
+}
+
+/* ── TOC sidebar ── */
+.toc-link {
+  @apply block py-1 text-sm text-wizard-text-dim hover:text-wizard-purple-light transition-colors border-l-2 border-transparent pl-3;
+}
+
+.toc-link.active {
+  @apply text-wizard-purple-light border-wizard-purple;
+}
+
+/* ── Tag pills ── */
+.tag-pill {
+  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  @apply bg-wizard-purple/10 text-wizard-purple-light border border-wizard-purple/20;
+  @apply hover:bg-wizard-purple/20 hover:border-wizard-purple/40 transition-all;
+}
