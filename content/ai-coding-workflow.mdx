@@ -1,443 +1,499 @@
 ---
-title: "AI Coding Workflow"
+title: "The Ultimate AI Coding Workflow"
 date: "2026-02-05"
-description: "A universal, state-of-the-art workflow for AI-assisted software development. The brain + muscle architecture for building software with AI agents."
-tags: ["ai", "coding", "workflow", "automation", "guide"]
+description: "A complete, universal guide for building anything with AI agents. From single bug fixes to entire applications. Covers Opus 4.6, Codex 5.3, Ralph loops, Agent Teams, and more."
+tags: ["ai", "coding", "workflow", "automation", "guide", "ralph", "opus", "codex"]
 coverImage: "/images/articles/ai-coding-workflow.png"
-readingTime: "15 min read"
+readingTime: "20 min read"
 ---
 
-Modern AI development uses a **brain + muscle** architecture. The brain plans and orchestrates. The muscles execute. This guide covers everything you need to build software with AI agents effectively.
+A complete, universal guide for building anything with AI agents. From single bug fixes to entire applications.
 
-## The Big Picture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         YOU (Human)                             │
-│              Decisions • Reviews • Approvals                    │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-                              ▼
-┌─────────────────────────────────────────────────────────────────┐
-│                   ORCHESTRATOR (Brain)                          │
-│   Claude Opus 4.5 or similar frontier model                     │
-│   Plans • Specs • Dispatches • Reviews • Coordinates            │
-└─────────────────────────────────────────────────────────────────┘
-                              │
-              ┌───────────────┼───────────────┐
-              ▼               ▼               ▼
-┌───────────────────┐ ┌───────────────┐ ┌───────────────────┐
-│   QUICK CODING    │ │  LONG-HORIZON │ │   SPECIALIZED     │
-│   GPT-5-Codex     │ │ GPT-5.3-Codex │ │   Gemini 3 Pro    │
-│   Interactive     │ │  Walk-away    │ │   UI/Styling      │
-│   < 30 min        │ │  2-8hr runs   │ │   Research tools  │
-└───────────────────┘ └───────────────┘ └───────────────────┘
-```
-
-### Model Selection Guide
-
-| Task Type | Best Model | Why |
-|-----------|------------|-----|
-| **Planning & orchestration** | Claude Opus 4.5 | Best reasoning, prompt engineering, judgment |
-| **Quick coding (< 30 min)** | GPT-5-Codex | Fast, interactive, good for iteration |
-| **Complex features (hours)** | GPT-5.3-Codex | True autonomy, better judgment under ambiguity |
-| **UI/Styling** | Gemini 3 Pro | Best visual design and CSS capabilities |
-| **Web research** | Perplexity Sonar | Real-time search with citations |
-| **Image analysis** | Gemini 2.0 Flash | Best vision model for the cost |
-
-### When to Use Which Agent
-
-**Use interactive (Codex CLI) when:**
-- Quick fixes, small tasks
-- You want to watch and guide
-- Exploring or prototyping
-- Learning how something works
-
-**Use long-horizon (GPT-5.3-Codex) when:**
-- Complex, multi-file features
-- Well-defined tasks with clear validation
-- Overnight / walk-away work
-- You want it done right, not fast
-
-> **Key insight:** GPT-5.3-Codex with validation tests can run for 8+ hours without losing the thread. The unlock is giving it clear pass/fail criteria upfront.
+**Updated for Opus 4.6 + Codex 5.3 (February 5, 2026)**
 
 ---
 
-## The Universal Workflow
+## The Philosophy
 
-Every task follows this pattern:
+> **The Core Insight:** The bottleneck isn't code — it's getting ideas out of your head into clear specs. AI can write unlimited code. Your job is to know what you want.
 
-**DEFINE → VALIDATE → EXECUTE → VERIFY → SHIP**
+### Your Three Jobs
 
-### Step 1: Define
+1. **Know what you want** — Have a clear vision
+2. **Describe it clearly** — Through conversation or specs
+3. **Review and approve** — Final quality check
 
-Write a clear spec before any code. Include:
+### The AI's Jobs
 
-- **Outcome**: What does success look like?
-- **Acceptance criteria**: Bullet list of requirements
-- **Non-goals**: What are we explicitly NOT doing?
-- **Constraints**: Tech stack, performance, security requirements
+1. **Understand intent** — Ask clarifying questions
+2. **Plan the approach** — Architecture, steps, dependencies
+3. **Execute the plan** — Write code, tests, documentation
+4. **Verify the work** — Run tests, check quality
+5. **Iterate until done** — Fix issues, improve
 
-**Example spec:**
+---
 
-```markdown
-## Feature: User Authentication
+## The Architecture
 
-### Outcome
-Users can sign up, log in, and reset passwords.
+This workflow uses a **brain + muscle** architecture:
 
-### Acceptance Criteria
-- [ ] Email/password signup with validation
-- [ ] Secure login with session management
-- [ ] Password reset via email link
-- [ ] Rate limiting on auth endpoints
-
-### Non-Goals
-- No OAuth/social login (v2)
-- No 2FA (v2)
-
-### Constraints
-- Use existing Supabase auth
-- Follow existing UI patterns
+```
+┌─────────────────────────────────────────────────────────────┐
+│                         YOU                                  │
+│           Ideas • Decisions • Reviews • Approvals            │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+┌─────────────────────────────────────────────────────────────┐
+│                    ORCHESTRATOR (Wiz)                        │
+│     Extracts ideas • Creates specs • Dispatches agents       │
+└─────────────────────────────────────────────────────────────┘
+                              ↓
+         ┌────────────────────┴────────────────────┐
+         ↓                                         ↓
+┌─────────────────────┐               ┌─────────────────────┐
+│   Claude Code CLI   │               │     Codex CLI       │
+│     (Opus 4.6)      │               │   (GPT-5.3-Codex)   │
+│ Planning • Complex  │               │ Execution • Reliable│
+└─────────────────────┘               └─────────────────────┘
 ```
 
-### Step 2: Validate (The Unlock)
+### How It Works
 
-**Write tests BEFORE implementation.** This is the single biggest unlock for autonomous coding.
+1. **You talk to Wiz** — describe what you want
+2. **Wiz asks questions** — clarifies requirements
+3. **Wiz creates specs** — or helps you create them
+4. **Wiz dispatches to the right CLI** — based on task complexity
+5. **CLI agent executes** — writes code, runs tests
+6. **Wiz reviews and reports** — creates PR, summarizes changes
+7. **You approve and merge** — final check
 
-> "If you want full autonomy, there is one approach that dominates everything else: give the model strong validation and tests up front." — Matt Shumer
+---
 
-The agent iterates until tests pass. No tests = no guardrails = drift.
+## Model Selection
 
-**Test types to include:**
-- Unit tests for business logic
-- Integration tests for data flows
-- E2E tests for critical user paths
+### The Simple Rule
 
-### Step 3: Execute
+**Use Opus 4.6 for thinking. Use Codex 5.3 for doing.**
 
-Choose execution mode based on task complexity:
+| Model | Best For | Personality |
+|-------|----------|-------------|
+| **Claude Opus 4.6** | Planning, debugging, code review, creative solutions | Figures out what you mean |
+| **GPT-5.3-Codex** | Executing specs, overnight builds, Ralph loops | Does exactly what you say |
 
-| Mode | When | How |
-|------|------|-----|
-| **Interactive** | Quick tasks, learning | Codex CLI with real-time feedback |
-| **Delegated** | Clear tasks, busy | Kick off agent, check back later |
-| **Overnight** | Complex features | Spec + tests → long-horizon agent → morning PR |
+### Decision Tree
 
-**For long-horizon runs:**
-- Use Extra High reasoning mode ("do it right, take your time")
-- Set clear timeout expectations
-- Ensure tests are comprehensive
+```
+Do you know EXACTLY what you want?
+├── YES → Codex 5.3 (reliable execution)
+└── NO  → Opus 4.6 (will explore and figure it out)
 
-### Step 4: Verify
+Is this overnight/unattended work?
+├── YES → Codex 5.3 (more predictable)
+└── NO  → Either works
 
-Never ship AI-generated code without verification:
+Do you need parallel review/analysis?
+├── YES → Opus 4.6 Agent Teams
+└── NO  → Single agent is fine
+```
 
-1. **Run the tests** — They should all pass
-2. **Read the diff** — Understand what changed
-3. **Check for the "almost right" trap** — 95% correct with subtle bugs
-4. **Cross-validate if unsure** — Run code past a second model
+### The Hybrid Approach (Recommended)
 
-### Step 5: Ship
+| Phase | Model | Why |
+|-------|-------|-----|
+| Planning | Opus 4.6 | Explores options, thinks deeply |
+| Spec Review | Opus 4.6 Agent Teams | Parallel review catches issues |
+| Execution | Codex 5.3 | Reliable, follows specs exactly |
+| Code Review | Opus 4.6 Agent Teams | Security, performance, style in parallel |
 
-- Create PR on feature branch (never push directly to main)
-- Human reviews and approves
-- Merge and deploy
+---
+
+## Task Sizing
+
+Different task sizes require different approaches:
+
+| Size | Time | Examples | Workflow |
+|------|------|----------|----------|
+| **Tiny** | < 5 min | Fix typo, update text | Tell Wiz → Quick fix |
+| **Small** | 5-30 min | New component, API endpoint | Describe → Clarify → Build |
+| **Medium** | 30 min - 2 hr | New page, form with validation | Quick spec → Approve → Build |
+| **Large** | 2-8 hr | Auth system, dashboard | Full spec → Audit → Ralph → Review |
+| **Massive** | Days+ | New application | Phased specs → Worktrees → Ralph |
+
+---
+
+## Tiny Tasks (< 5 minutes)
+
+**Examples:** Fix typo, update text, simple one-line bug
+
+**Workflow:**
+
+1. Tell Wiz what you need:
+   ```
+   "Fix the typo on the homepage — it says 'welcom' instead of 'welcome'"
+   ```
+
+2. Wiz handles it directly or dispatches to Claude Code
+
+3. Done — Wiz confirms and commits
+
+---
+
+## Small Tasks (5-30 minutes)
+
+**Examples:** Add component, create API endpoint, fix bug across few files
+
+**Workflow:**
+
+1. **Describe to Wiz:**
+   ```
+   "Add a logout button to the header that clears the session and redirects to /login"
+   ```
+
+2. **Wiz clarifies if needed:**
+   ```
+   Wiz: "Should it show a confirmation dialog first?"
+   You: "No, log out immediately"
+   ```
+
+3. **Wiz dispatches to Claude Code**
+
+4. **Review and merge**
+
+---
+
+## Medium Tasks (30 min - 2 hours)
+
+**Examples:** New page, form with validation, integration
+
+**Workflow:**
+
+1. **Describe to Wiz:**
+   ```
+   "Build a contact form page with name, email, message fields.
+   Validate inputs, show success/error states, send to /api/contact"
+   ```
+
+2. **Wiz creates quick spec:**
+   ```markdown
+   ## Contact Form
+   - Fields: name (required), email (validated), message (min 10 chars)
+   - Submit to POST /api/contact
+   - Show loading, success, error states
+   - Match existing form styles
+   ```
+
+3. **You approve:** "Looks good, build it"
+
+4. **Wiz dispatches to CLI**
+
+5. **Review PR and merge**
+
+---
+
+## Large Tasks (2-8 hours)
+
+**Examples:** Auth system, dashboard, major feature
+
+**Workflow: Spec System + Ralph**
+
+### Step 1: Ideation with Wiz
+```
+"I want to build a dashboard that shows sales metrics, charts, and recent activity"
+```
+Wiz asks clarifying questions about users, features, constraints.
+
+### Step 2: Create Spec Documents
+
+| File | Purpose |
+|------|---------|
+| research.md | Problem, users, success criteria |
+| context.md | Background, scope, constraints |
+| tech-stack.md | Architecture decisions |
+| design.md | UI flow, screens, components |
+| prd.json | User stories with pass/fail status |
+
+### Step 3: Audit the Spec
+```
+/audit-spec
+```
+Validates stories, checks ordering, identifies skills needed.
+
+### Step 4: Execute with Ralph
+```
+/execute-spec
+```
+Ralph iterates through stories until all pass. Can run overnight.
+
+### Step 5: Review with Agent Teams
+```
+"Use agent teams to review this PR for security, performance, and code quality"
+```
+
+### Step 6: Final Review and Merge
+
+---
+
+## Massive Tasks (Days+)
+
+**Examples:** New application, platform rewrite
+
+**Workflow: Phased Specs + Worktrees**
+
+### Step 1: Vision Document
+Extended conversation with Wiz to define the entire project.
+
+### Step 2: Break into Phases
+```
+Phase 1: Foundation (5-7 stories)
+  - Project setup, database, auth, core components
+
+Phase 2: Core Features (10-15 stories)
+  - Main functionality, key screens, API endpoints
+
+Phase 3: Polish (5-10 stories)
+  - Error handling, loading states, responsive, performance
+```
+
+### Step 3: Execute Phases Sequentially
+Each phase: Create spec → Audit → Ralph → Review → Merge → Next phase
+
+### Step 4: Use Worktrees for Parallel Work
+```bash
+git worktree add ../project-auth -b ralph/auth
+git worktree add ../project-dashboard -b ralph/dashboard
+# Run Ralph in each worktree simultaneously
+```
+
+> **Key Rule:** Keep each spec to 5-15 stories max. If bigger, split into phases.
+
+---
+
+## The Spec System
+
+Specs separate **ideas** from **execution**. They're complete build instructions that agents execute autonomously.
+
+### Folder Structure
+```
+Specs/
+└── Feature-Name/
+    ├── prd.json        # User stories (required)
+    ├── research.md     # Problem, users, success
+    ├── context.md      # Background, scope
+    ├── tech-stack.md   # Architecture
+    └── design.md       # UI flow
+```
+
+### The prd.json Structure
+```json
+{
+  "project": "Feature Name",
+  "projectPath": "~/Projects/my-app",
+  "branchName": "ralph/feature-name",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "First task",
+      "description": "Detailed instructions",
+      "acceptanceCriteria": ["Testable outcome", "npm run build passes"],
+      "priority": 1,
+      "passes": false
+    }
+  ]
+}
+```
+
+### Spec Commands
+
+| Command | What It Does |
+|---------|--------------|
+| `/spec` | Create new spec with research phase |
+| `/audit-spec` | Validate spec, check ordering |
+| `/suggest-spec` | Analyze codebase, suggest improvements |
+| `/execute-spec` | Start Ralph loop |
+
+---
+
+## Ralph Loops
+
+Ralph is an autonomous agent loop that executes specs. It reads prd.json, works through stories, and ships code via PRs.
+
+### How Ralph Works
+
+1. Reads prd.json and all research docs
+2. Picks next story where `passes: false`
+3. Implements the story
+4. Runs verification (tests, build, lint)
+5. If pass → marks `passes: true`, commits
+6. Loops until all stories pass
+7. Creates PR when complete
+
+### When to Use Ralph
+
+| ✅ Good For | ❌ Not Good For |
+|-------------|-----------------|
+| Tasks with clear pass/fail | Subjective tasks |
+| Overnight unattended work | Exploratory research |
+| Features with tests | Real-time feedback needed |
+| Migrations and refactors | UI polish without specs |
+
+### Is Ralph Still the Best?
+
+**Yes, for sequential execution.** For parallel work, use Agent Teams. The optimal approach combines both:
+
+- **Agent Teams** → Planning and review (parallel)
+- **Ralph** → Execution (sequential, reliable)
+
+---
+
+## Agent Teams (Opus 4.6)
+
+Multiple Claude instances working in parallel, coordinating autonomously.
+
+### When to Use
+- Code review (security, performance, style)
+- Large codebase analysis
+- Planning complex features
+- Research tasks
+
+### How to Trigger
+```
+"Use agent teams to review this PR"
+
+"Spin up subagents to analyze security, performance, and style"
+```
+
+### Agent Teams vs Ralph
+
+| Aspect | Agent Teams | Ralph |
+|--------|-------------|-------|
+| Execution | Parallel | Sequential |
+| Best for | Read/analysis | Write/build |
+| Model | Opus 4.6 | Either |
 
 ---
 
 ## Git Worktrees
 
-Worktrees let you run multiple branches simultaneously in separate directories. Essential for parallel AI work.
+Multiple working copies of the same repo for parallel development.
 
-### Why Worktrees Matter for AI
-
-- **Isolation**: AI works in separate directory, your main work stays untouched
-- **Parallelism**: Run multiple AI tasks simultaneously
-- **Safety**: Easy to discard entire worktree if approach fails
-- **Comparison**: Compare AI implementations side-by-side
-
-### Recommended Structure
-
+### Structure
 ```
-~/projects/
-├── my-app/                    # Main worktree (your work)
-├── my-app-ai-feature/         # AI implementing feature
-├── my-app-ai-refactor/        # AI refactoring task
-└── my-app-ai-experiment/      # AI exploring approach
+~/Projects/
+├── my-app/              # Main (stays clean)
+├── my-app-wt-auth/      # Feature 1
+├── my-app-wt-dashboard/ # Feature 2
 ```
 
-### Best Practices
+### Commands
+```bash
+# Create worktree
+git worktree add ../my-app-wt-feature -b ralph/feature
 
-| Practice | Why |
-|----------|-----|
-| One worktree per task | Clean isolation, easy cleanup |
-| Clear naming: `{project}-ai-{task}` | Easy to identify purpose |
-| Commit frequently | Granular commits enable cherry-picking |
-| No real credentials | Use `.env.example` templates |
-| Clean up when done | Don't accumulate stale worktrees |
+# List worktrees
+git worktree list
+
+# Remove when done
+git worktree remove ../my-app-wt-feature
+```
+
+### Parallel Ralph Loops
+```bash
+# Terminal 1
+cd ~/Projects/my-app-wt-auth && /execute-spec Specs/Auth
+
+# Terminal 2
+cd ~/Projects/my-app-wt-dashboard && /execute-spec Specs/Dashboard
+```
 
 ---
 
-## Automation
+## Skills
 
-### What Should Be Automated
+Reusable instruction sets that teach agents specific tasks.
 
-| Task | Automate? | How |
-|------|-----------|-----|
-| Running tests | ✅ Yes | CI/CD on every push |
-| Linting/formatting | ✅ Yes | Pre-commit hooks |
-| Type checking | ✅ Yes | CI pipeline |
-| Deploy to staging | ✅ Yes | Auto-deploy on PR merge |
-| Deploy to prod | ⚠️ Semi | Human approval gate |
-| Code review | ⚠️ Semi | AI reviews, human approves |
-| Security scanning | ✅ Yes | Automated in CI |
+### Where to Find Skills
+- **Official:** [github.com/anthropics/skills](https://github.com/anthropics/skills)
+- **Community:** [skills.sh](https://skills.sh)
+- **Docs:** [code.claude.com/docs/en/skills](https://code.claude.com/docs/en/skills)
 
-### Closed-Loop Development
-
-The goal: Agent can **deploy → check production → tail logs → iterate**.
-
-This enables agents to verify their own work in production, catching issues that only appear in real environments.
-
-### Nightly Development Sessions
-
-For serious compound progress, schedule autonomous dev time:
-
-1. Agent checks project backlog
-2. Picks highest-priority, well-defined tasks
-3. Writes specs and tests for each
-4. Runs long-horizon coding agent
-5. Creates PRs for morning review
-
----
-
-## Tools & Extensions
-
-### Sub-Agents
-
-Sub-agents are spawned instances for parallel work:
-
-- **Parallel research**: Multiple agents analyze different parts simultaneously
-- **Specialized tasks**: One for logs, one for database, one for code review
-- **Token efficiency**: Each sub-agent has its own context budget
-
-**Key rule:** Read operations parallelize well. Write operations stay sequential to avoid conflicts.
-
-### MCP (Model Context Protocol)
-
-MCP is the emerging standard for connecting AI agents to external tools and data.
-
-**What it enables:**
-- Dynamic tool discovery (agent finds available tools at runtime)
-- Standardized tool invocation
-- Stateful sessions across tools
-- Security and consent controls
-
-**Resources:** [modelcontextprotocol.io](https://modelcontextprotocol.io)
-
-### Skills
-
-Skills are packaged capabilities for specific tasks — plugins for your agent.
-
-**Finding skills:**
-- [skills.sh](https://skills.sh) — Skill directory
-- [clawdhub.com](https://clawdhub.com) — OpenClaw skill hub
+### Essential Skills
+- `frontend-design` — Better UI generation
+- `agent-browser` — Web testing automation
+- `skill-creator` — Create your own skills
 
 ---
 
 ## Debugging
 
-Debugging AI-generated code requires a structured approach:
+### The TDD Approach
 
-**REPRODUCE → ISOLATE → EXPLAIN → FIX → VERIFY**
+1. **Write failing test:** "Write a test that reproduces this bug"
+2. **Confirm it fails**
+3. **Fix the code:** "Fix the code to make this test pass"
+4. **Confirm it passes**
+5. **Refactor:** "Refactor while keeping tests green"
 
-### The Steps
+### Power Prompts
+```
+"Go fix the failing CI tests"
 
-1. **Reproduce**: Get minimal reproduction — exact steps, expected vs actual, error messages
-2. **Isolate**: Narrow down — which file/function? Which input triggers it?
-3. **Explain**: Have the agent walk through the code line by line
-4. **Fix**: Apply fix with context — bug, root cause, change, verification
-5. **Verify**: Run reproduction (should pass), run full test suite (no regressions)
+"Knowing everything you know now, implement the elegant solution"
 
-### Cross-Model Validation
-
-When stuck, get a second opinion. Share code + error with different model, compare diagnoses, test fixes.
-
-**No single model is fully reliable.** Cross-validation catches blind spots.
-
-### Common AI Code Issues
-
-| Issue | Signs | Prevention |
-|-------|-------|------------|
-| Off-by-one errors | Loops, array access | Edge case tests |
-| Missing null checks | Runtime crashes | Type checking, tests |
-| Security flaws | SQL injection, XSS | Security scanning |
-| Performance issues | Slow operations | Load testing |
-| Incomplete error handling | Silent failures | Error path tests |
-
----
-
-## Context Management
-
-With 200K token windows (1M in beta), context management is less critical but still matters for efficiency and cost.
-
-### Practical Guidelines
-
-| Context Level | Action |
-|---------------|--------|
-| < 30% used | Work freely |
-| 30-60% used | Monitor, consider compaction |
-| > 60% used | Compact or start fresh session |
-
-### What to Keep vs Offload
-
-**Keep:**
-- Current task spec and acceptance criteria
-- Relevant code files being modified
-- Recent error messages and fixes
-- Key architectural decisions
-
-**Offload:**
-- Completed subtasks (summarize)
-- Exploration that didn't pan out
-- Verbose logs (extract key info)
-
----
-
-## Cost Management
-
-### How to Think About Cost
-
-**The principle:** Use the best model that's cost-effective for the task. Don't cheap out on important work, don't overspend on simple tasks.
-
-| Task Complexity | Model Choice | Why |
-|-----------------|--------------|-----|
-| Simple/routine | Cheaper, faster models | Speed matters, quality sufficient |
-| Important features | Best available | Quality matters, cost is investment |
-| Long-horizon overnight | Best available | Paying for reliability, not speed |
-| Exploration/prototyping | Cheaper models | You'll likely redo it anyway |
-
-### Current Pricing (Feb 2026)
-
-| Model | Input (per 1M tokens) | Output (per 1M tokens) |
-|-------|----------------------|------------------------|
-| Claude Opus 4.5 | $5.00 | $25.00 |
-| GPT-5-Codex | $1.25 | $10.00 |
-| GPT-5.3-Codex | ~$1.25 | ~$10.00 (est.) |
-| Gemini 2.0 Flash | $0.10 | $0.40 |
-| Perplexity Sonar | ~$1.00/M | — |
-
-### Example Task Costs
-
-| Task | Est. Tokens | Est. Cost |
-|------|-------------|-----------|
-| Quick bug fix | 50K | $0.50-1.00 |
-| Small feature | 200K | $2-4 |
-| Complex feature (overnight) | 2M | $15-25 |
-| Full day interactive | 500K | $5-10 |
-
-### How to Save Money
-
-1. **Write good specs** — Clear requirements = fewer iterations
-2. **Use the right model** — Don't use Opus for simple tasks
-3. **Batch small tasks** — Combine fixes into one session
-4. **Write tests first** — Agent converges faster
-5. **Use caching** — Prompt caching cuts repeated costs
-6. **Monitor usage** — Identify wasteful patterns
-7. **Start smaller, escalate** — Try cheaper model first
-
-### When NOT to Optimize
-
-- **Production bugs** — Fix it right, fix it once
-- **Security code** — Don't cut corners
-- **Architecture decisions** — Worth the extra reasoning
-- **Overnight runs** — Reliability > saving $5
-
-**Bottom line:** Token costs are cheap compared to your time. A $20 overnight run that saves you 4 hours is a great deal.
-
----
-
-## Configuration
-
-### Codex CLI Setup
-
-```bash
-# Install
-npm install -g @openai/codex
-
-# Authenticate
-codex auth  # Browser-based login
-# OR
-export OPENAI_API_KEY="sk-..."
+"Use subagents to debug from multiple angles"
 ```
 
-**Config file (~/.codex/config.toml):**
+### When Stuck
 
-```toml
-# Model selection
-model = "gpt-5-codex"  # or "gpt-5.3-codex"
-
-# Safety settings
-sandbox = "workspace-write"
-ask_for_approval = "on-request"
-
-# For full autonomy:
-# ask_for_approval = "never"
-```
-
-### Reasoning Modes (GPT-5.3-Codex)
-
-| Mode | Use Case | Speed |
-|------|----------|-------|
-| Low | Simple, clear tasks | Fastest |
-| Medium | Default, balanced | Balanced |
-| High | Complex, important | Slower |
-| Extra High | Walk-away, "do it right" | Slowest, most reliable |
-
-### Deployment Platforms
-
-| Platform | Best For | Key Feature |
-|----------|----------|-------------|
-| Vercel | Frontend, Next.js | Instant deploys, edge functions |
-| Railway | Backend, Docker | Containers, closed-loop deploys |
-
-**Hybrid approach:** Frontend → Vercel, Backend/APIs → Railway
+| Problem | Solution |
+|---------|----------|
+| AI keeps failing | Switch models |
+| Context too big | `/compact` or break task |
+| Wrong approach | `/clear`, start fresh |
+| Dead end | Abort (10-20% is normal) |
 
 ---
 
-## Resources
+## Quick Reference
 
-### Documentation
+### Task Size → Workflow
 
-| Tool | Docs |
-|------|------|
-| Codex CLI | [developers.openai.com/codex/cli](https://developers.openai.com/codex/cli/) |
-| MCP Spec | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
-| Git Worktrees | [git-scm.com/docs/git-worktree](https://git-scm.com/docs/git-worktree) |
+| Size | Workflow | Ralph? |
+|------|----------|--------|
+| Tiny | Tell Wiz → Quick fix | No |
+| Small | Describe → Build | No |
+| Medium | Quick spec → Build | Optional |
+| Large | Full spec → Ralph → Review | **Yes** |
+| Massive | Phased specs → Worktrees | **Yes** |
 
-### Skill Directories
+### Boris's Top Tips (Claude Code Creator)
 
-| Directory | URL |
-|-----------|-----|
-| Skills.sh | [skills.sh](https://skills.sh) |
-| ClawdHub | [clawdhub.com](https://clawdhub.com) |
+1. **Run parallel sessions** — 3-5 worktrees with Claude
+2. **Start in plan mode** — Iterate plans until solid
+3. **Invest in CLAUDE.md** — "Update CLAUDE.md" after corrections
+4. **Create skills** — If you do it twice, make it a skill
+5. **Let AI fix bugs** — "Go fix the failing CI tests"
+6. **Use voice** — fn x2, 3x faster than typing
+7. **Use subagents** — More compute on complex tasks
+8. **Abort dead ends** — 10-20% go nowhere, that's normal
 
-### Learning Resources
+### Resources
 
-| Topic | Resource |
-|-------|----------|
-| Worktrees + AI | [dev.to guide](https://dev.to/bhaidar/supercharge-your-ai-coding-workflow-a-complete-guide-to-git-worktrees-with-claude-code-60m) |
-| Context engineering | [jxnl.co/writing](https://jxnl.co/writing/2025/08/29/context-engineering-slash-commands-subagents/) |
-| GPT-5.3 review | [shumer.dev](https://shumer.dev/gpt53-codex-review) |
+| Resource | URL |
+|----------|-----|
+| Skills Directory | [skills.sh](https://skills.sh) |
+| Claude Code Docs | [code.claude.com/docs](https://code.claude.com/docs) |
+| Codex CLI Docs | [developers.openai.com/codex/cli](https://developers.openai.com/codex/cli) |
+| Ralph Loop | [github.com/snarktank/ralph](https://github.com/snarktank/ralph) |
+| MCP Protocol | [modelcontextprotocol.io](https://modelcontextprotocol.io) |
 
 ---
 
 ## Core Principles
 
-1. **Validation first** — Tests are the unlock for autonomous coding
-2. **Right tool for the job** — Quick work vs long-horizon vs specialized
-3. **Human in the loop** — AI proposes, human approves (especially prod)
-4. **Compound progress** — Small consistent gains beat sporadic heroics
+1. **Specs first** — The bottleneck is ideas, not code
+2. **Right tool for the task** — Opus thinks, Codex executes
+3. **Human in the loop** — AI proposes, you approve
+4. **Small iterations** — 5-15 stories max per spec
 5. **Trust but verify** — AI is good, not infallible
 
 ---
