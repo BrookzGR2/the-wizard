@@ -7,14 +7,11 @@ export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-xl bg-wizard-bg/80 border-b border-wizard-border/30">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link
-          href="/"
-          className="flex items-center gap-2.5 group"
-        >
-          <span className="text-2xl group-hover:animate-float">🧙‍♂️</span>
-          <span className="font-heading text-xl font-bold bg-gradient-to-r from-wizard-purple-light via-wizard-blue-electric to-wizard-gold bg-clip-text text-transparent">
+    <header className="sticky top-0 z-50 bg-bg-card/95 backdrop-blur-sm border-b border-border">
+      <nav className="max-w-4xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-2 group">
+          <span className="text-xl">🧙‍♂️</span>
+          <span className="font-semibold text-text group-hover:text-accent transition-colors">
             The Wizard
           </span>
         </Link>
@@ -23,21 +20,21 @@ export function Header() {
         <div className="hidden sm:flex items-center gap-6">
           <Link
             href="/"
-            className="text-sm text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+            className="text-sm text-text-muted hover:text-accent transition-colors"
           >
-            Spellbook
+            Articles
           </Link>
           <Link
             href="/about"
-            className="text-sm text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+            className="text-sm text-text-muted hover:text-accent transition-colors"
           >
-            About Wiz
+            About
           </Link>
           <a
             href="https://github.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+            className="text-sm text-text-muted hover:text-accent transition-colors"
           >
             GitHub
           </a>
@@ -45,7 +42,7 @@ export function Header() {
 
         {/* Mobile menu button */}
         <button
-          className="sm:hidden p-2 text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+          className="sm:hidden p-2 text-text-muted hover:text-accent transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -63,21 +60,21 @@ export function Header() {
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="sm:hidden border-t border-wizard-border/30 bg-wizard-bg/95 backdrop-blur-xl">
+        <div className="sm:hidden border-t border-border bg-bg-card">
           <div className="px-4 py-3 space-y-3">
             <Link
               href="/"
               onClick={() => setMenuOpen(false)}
-              className="block text-sm text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+              className="block text-sm text-text-muted hover:text-accent transition-colors"
             >
-              ✦ Spellbook
+              Articles
             </Link>
             <Link
               href="/about"
               onClick={() => setMenuOpen(false)}
-              className="block text-sm text-wizard-text-muted hover:text-wizard-purple-light transition-colors"
+              className="block text-sm text-text-muted hover:text-accent transition-colors"
             >
-              ✦ About Wiz
+              About
             </Link>
           </div>
         </div>

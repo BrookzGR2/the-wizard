@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ── Base ── */
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #09090b;
+  color: #fafafa;
+  line-height: 1.7;
+}
+
 /* ── Scrollbar ── */
 ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0a12;
+  background: #09090b;
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a4a;
+  background: #3f3f46;
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -35,148 +43,172 @@ pre code.hljs {
 
 /* ── Article prose styling ── */
 .article-content {
-  @apply text-wizard-text leading-relaxed;
+  @apply text-text leading-relaxed;
 }
 
 .article-content h1 {
-  @apply font-heading text-3xl md:text-4xl font-bold mt-12 mb-6 text-white;
-  @apply border-b border-wizard-border pb-4;
+  @apply text-3xl md:text-4xl font-bold mt-12 mb-6 text-text;
+  @apply border-b-2 border-accent pb-4;
 }
 
 .article-content h2 {
-  @apply font-heading text-2xl md:text-3xl font-bold mt-10 mb-4 text-white;
-  @apply border-b border-wizard-border/50 pb-3;
+  @apply text-2xl md:text-3xl font-bold mt-10 mb-4 text-accent;
+  @apply border-b-2 border-accent pb-3;
 }
 
 .article-content h3 {
-  @apply font-heading text-xl md:text-2xl font-semibold mt-8 mb-3 text-wizard-purple-light;
+  @apply text-xl md:text-2xl font-semibold mt-8 mb-3 text-text;
 }
 
 .article-content h4 {
-  @apply font-heading text-lg font-semibold mt-6 mb-2 text-wizard-blue-light;
+  @apply text-lg font-semibold mt-6 mb-2 text-accent-light;
 }
 
 .article-content p {
-  @apply mb-4 text-wizard-text/90 text-base md:text-lg leading-relaxed;
+  @apply mb-4 text-text/90 text-base md:text-lg leading-relaxed;
 }
 
 .article-content a {
-  @apply text-wizard-purple-light hover:text-wizard-gold transition-colors underline underline-offset-2 decoration-wizard-purple/40 hover:decoration-wizard-gold/60;
+  @apply text-accent hover:text-accent-light transition-colors underline underline-offset-2;
 }
 
 .article-content strong {
-  @apply text-white font-semibold;
+  @apply text-text font-semibold;
 }
 
 .article-content em {
-  @apply text-wizard-text-muted italic;
+  @apply text-text-muted italic;
 }
 
 .article-content ul {
-  @apply mb-4 ml-6 space-y-1;
+  @apply mb-4 ml-6 space-y-2 list-disc;
 }
 
 .article-content ul li {
-  @apply text-wizard-text/90 relative pl-2;
-  list-style: none;
+  @apply text-text/90;
 }
 
-.article-content ul li::before {
-  content: "✦";
-  @apply absolute -left-5 text-wizard-purple text-sm;
+.article-content ul li::marker {
+  @apply text-accent;
 }
 
 .article-content ol {
-  @apply mb-4 ml-6 space-y-1 list-decimal;
+  @apply mb-4 ml-6 space-y-2 list-decimal;
 }
 
 .article-content ol li {
-  @apply text-wizard-text/90 pl-1;
+  @apply text-text/90;
 }
 
 .article-content ol li::marker {
-  @apply text-wizard-purple-light font-semibold;
+  @apply text-accent-light font-semibold;
 }
 
 .article-content blockquote {
-  @apply border-l-4 border-wizard-purple/60 pl-4 py-2 my-6 bg-wizard-purple/5 rounded-r-lg;
+  @apply border-l-4 border-accent pl-4 py-2 my-6 bg-accent/5 rounded-r-lg;
 }
 
 .article-content blockquote p {
-  @apply text-wizard-text-muted italic mb-0;
+  @apply text-text-muted italic mb-0;
 }
 
 .article-content hr {
-  @apply my-8 border-wizard-border/50;
+  @apply my-8 border-border;
 }
 
 /* ── Inline code ── */
 .article-content code:not(pre code) {
-  @apply bg-wizard-card text-wizard-purple-light px-1.5 py-0.5 rounded text-sm font-mono border border-wizard-border/50;
+  @apply bg-bg-card text-green px-1.5 py-0.5 rounded text-sm font-mono border border-border;
 }
 
 /* ── Code blocks ── */
 .article-content pre {
-  @apply mb-6 rounded-xl overflow-hidden border border-wizard-border/50;
-  @apply bg-[#0d0d1a] !important;
+  @apply mb-6 rounded-lg overflow-hidden border border-border;
+  @apply bg-bg-card !important;
 }
 
 .article-content pre code {
-  @apply block p-4 text-sm font-mono overflow-x-auto leading-relaxed;
+  @apply block p-5 text-sm font-mono overflow-x-auto leading-relaxed;
 }
 
 /* ── Tables ── */
 .article-content table {
-  @apply w-full mb-6 border-collapse overflow-hidden rounded-lg;
+  @apply w-full mb-6 border-collapse;
 }
 
 .article-content thead {
-  @apply bg-wizard-card;
+  @apply bg-bg-elevated;
 }
 
 .article-content th {
-  @apply px-4 py-3 text-left text-sm font-semibold text-wizard-purple-light border-b border-wizard-border;
+  @apply px-4 py-3 text-left text-sm font-semibold text-accent uppercase border-b border-border;
 }
 
 .article-content td {
-  @apply px-4 py-3 text-sm border-b border-wizard-border/30;
+  @apply px-4 py-3 text-sm border-b border-border;
 }
 
 .article-content tbody tr:hover {
-  @apply bg-wizard-purple/5;
+  @apply bg-bg-card;
 }
 
 /* ── Images ── */
 .article-content img {
-  @apply rounded-xl my-6 shadow-glow max-w-full;
+  @apply rounded-lg my-6 max-w-full;
 }
 
-/* ── Glow effects ── */
-@keyframes subtle-glow {
-  0%, 100% { box-shadow: 0 0 5px rgba(139, 92, 246, 0.1); }
-  50% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.2); }
+/* ── Card base ── */
+.card {
+  @apply bg-bg-card border border-border rounded-xl p-6;
 }
 
-.hover-glow {
-  transition: all 0.3s ease;
+/* ── Badge/Tag styles ── */
+.badge {
+  @apply inline-block px-2.5 py-1 rounded-md text-xs font-semibold;
 }
 
-.hover-glow:hover {
-  box-shadow: 0 0 30px rgba(139, 92, 246, 0.15), 0 0 60px rgba(139, 92, 246, 0.05);
+.badge-purple {
+  @apply bg-accent/20 text-accent;
+}
+
+.badge-green {
+  @apply bg-green/20 text-green;
+}
+
+.badge-blue {
+  @apply bg-blue/20 text-blue;
+}
+
+.badge-orange {
+  @apply bg-orange/20 text-orange;
+}
+
+/* ── Callout styles ── */
+.callout {
+  @apply p-5 rounded-lg my-5 border-l-4;
+}
+
+.callout-tip {
+  @apply bg-green/10 border-green;
+}
+
+.callout-info {
+  @apply bg-blue/10 border-blue;
+}
+
+.callout-warning {
+  @apply bg-orange/10 border-orange;
+}
+
+.callout-critical {
+  @apply bg-accent/10 border-accent;
 }
 
 /* ── TOC sidebar ── */
 .toc-link {
-  @apply block py-1 text-sm text-wizard-text-dim hover:text-wizard-purple-light transition-colors border-l-2 border-transparent pl-3;
+  @apply block py-1 text-sm text-text-dim hover:text-accent transition-colors border-l-2 border-transparent pl-3;
 }
 
 .toc-link.active {
-  @apply text-wizard-purple-light border-wizard-purple;
-}
-
-/* ── Tag pills ── */
-.tag-pill {
-  @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
-  @apply bg-wizard-purple/10 text-wizard-purple-light border border-wizard-purple/20;
-  @apply hover:bg-wizard-purple/20 hover:border-wizard-purple/40 transition-all;
+  @apply text-accent border-accent;
 }

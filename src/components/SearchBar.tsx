@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useMemo } from "react";
 import type { ArticleMeta } from "@/lib/articles";
 import { ArticleCard } from "./ArticleCard";
 
@@ -40,7 +40,7 @@ export function SearchBar({ articles }: { articles: ArticleMeta[] }) {
       <div className="relative mb-6">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <svg
-            className="w-4 h-4 text-wizard-text-dim"
+            className="w-4 h-4 text-text-dim"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -55,10 +55,10 @@ export function SearchBar({ articles }: { articles: ArticleMeta[] }) {
         </div>
         <input
           type="text"
-          placeholder="Search spells..."
+          placeholder="Search articles..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-11 pr-4 py-3 bg-wizard-surface border border-wizard-border/40 rounded-xl text-sm text-wizard-text placeholder:text-wizard-text-dim focus:outline-none focus:border-wizard-purple/60 focus:ring-1 focus:ring-wizard-purple/30 transition-all"
+          className="w-full pl-11 pr-4 py-3 bg-bg-card border border-border rounded-lg text-sm text-text placeholder:text-text-dim focus:outline-none focus:border-accent/60 transition-colors"
         />
       </div>
 
@@ -67,10 +67,10 @@ export function SearchBar({ articles }: { articles: ArticleMeta[] }) {
         <div className="flex flex-wrap gap-2 mb-8">
           <button
             onClick={() => setSelectedTag(null)}
-            className={`tag-pill transition-all ${
+            className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
               !selectedTag
-                ? "!bg-wizard-purple/30 !border-wizard-purple/60 !text-white"
-                : ""
+                ? "bg-accent/20 text-accent border border-accent/40"
+                : "bg-bg-card text-text-muted border border-border hover:border-accent/40"
             }`}
           >
             All
@@ -79,10 +79,10 @@ export function SearchBar({ articles }: { articles: ArticleMeta[] }) {
             <button
               key={tag}
               onClick={() => setSelectedTag(selectedTag === tag ? null : tag)}
-              className={`tag-pill transition-all ${
+              className={`px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${
                 selectedTag === tag
-                  ? "!bg-wizard-purple/30 !border-wizard-purple/60 !text-white"
-                  : ""
+                  ? "bg-accent/20 text-accent border border-accent/40"
+                  : "bg-bg-card text-text-muted border border-border hover:border-accent/40"
               }`}
             >
               {tag}
@@ -99,12 +99,12 @@ export function SearchBar({ articles }: { articles: ArticleMeta[] }) {
           ))
         ) : (
           <div className="text-center py-16">
-            <span className="text-4xl mb-4 block">🔮</span>
-            <p className="text-wizard-text-muted">
-              No spells found matching &ldquo;{query}&rdquo;
+            <span className="text-4xl mb-4 block">🔍</span>
+            <p className="text-text-muted">
+              No articles found matching &ldquo;{query}&rdquo;
             </p>
-            <p className="text-sm text-wizard-text-dim mt-1">
-              Try a different incantation
+            <p className="text-sm text-text-dim mt-1">
+              Try a different search term
             </p>
           </div>
         )}
